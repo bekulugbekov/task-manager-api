@@ -31,4 +31,8 @@ Loyihani real vaqtda sinab ko'ring:
 
 1. Repozitoriyani klonlang:
    ```bash
+<<<<<<< HEAD
    git clone [https://github.com/bekulugbekov/task-manager-api.git](https://github.com/bekulugbekov/task-manager-api.git)
+=======
+   git clone [https://github.com/bekulugbekov/task-manager-api.git](https://github.com/bekulugbekov/task-manager-api.git)
+>>>>>>> 3e26161 (fix: cors muammosi hal qilindi)
