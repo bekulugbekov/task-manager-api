@@ -6,11 +6,13 @@ import router from './src/routes/index.js';
 import errorMiddleware from './src/middlewares/error.middleware.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './src/swagger.js';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(fileUpload({}));
 app.use('/api', router);
