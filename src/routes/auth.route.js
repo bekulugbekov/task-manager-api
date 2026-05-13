@@ -5,6 +5,30 @@ import validatorMiddleware from "../middlewares/validator.middleware.js"; // 2. 
 
 const router = new Router();
 
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Tizimga kirish va token olish
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Muvaffaqiyatli kirish
+ */
+
+router.post("/login", authController.login);
+
 // Ro'yxatdan o'tish qismini yangilaymiz
 /**
  * @swagger
@@ -43,29 +67,5 @@ router.post(
   validatorMiddleware, // Xatolarni tutib oluvchi middleware
   authController.register,
 );
-
-/**
- * @swagger
- * /api/auth/login:
- *   post:
- *     summary: Tizimga kirish va token olish
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       200:
- *         description: Muvaffaqiyatli kirish
- */
-
-router.post("/login", authController.login);
 
 export default router;
