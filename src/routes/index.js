@@ -63,6 +63,7 @@ router.post('/projects', projectController.create);
  *         description: Loyihalar ro'yxati qaytdi
  */
 router.get('/projects', projectController.getAll);
+router.delete('/projects/:id', projectController.delete);
 
 // --- Tasks ---
 
@@ -138,6 +139,7 @@ router.get('/projects/:projectId/tasks', taskController.getTasksByProject);
  *       200:
  *         description: O'chirildi
  */
+router.put('/tasks/:id', taskController.update);
 router.delete('/tasks/:id', taskController.delete);
 
 export default router;

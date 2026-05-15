@@ -26,6 +26,15 @@ class ProjectService {
         }
         return project;
     }
+
+    // Loyihani o'chirish (faqat egasi)
+    async delete(projectId, userId) {
+        const project = await projectModel.findOneAndDelete({ _id: projectId, owner: userId });
+        if (!project) {
+            throw BaseError.BadRequest("Project not found or access denied");
+        }
+        return project;
+    }
 }
 
 export default new ProjectService();

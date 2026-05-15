@@ -20,6 +20,16 @@ class ProjectController {
             next(error);
         }
     }
+
+    async delete(req, res, next) {
+        try {
+            const { id } = req.params;
+            const project = await projectService.delete(id, req.user.id);
+            res.status(200).json({ message: "Loyiha o'chirildi", project });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 export default new ProjectController();

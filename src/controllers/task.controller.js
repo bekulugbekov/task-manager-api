@@ -22,13 +22,22 @@ class TaskController {
     }
   }
 
+  async update(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { status } = req.body;
+      const task = await taskService.updateStatus(id, status);
+      res.status(200).json(task);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async delete(req, res, next) {
     try {
       const { id } = req.params;
       const task = await taskService.delete(id);
-      res
-        .status(200)
-        .json({ message: "Vazifa va uning rasmi o'chirildi", task });
+      res.status(200).json({ message: "Vazifa va uning rasmi o'chirildi", task });
     } catch (error) {
       next(error);
     }
